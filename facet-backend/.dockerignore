@@ -1,0 +1,9 @@
+.git
+.gitignore
+config.yaml
+.env
+.env.*
+*.md
+tmp/
+logs/
+dist/

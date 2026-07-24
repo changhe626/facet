@@ -1,0 +1,21 @@
+# 忽略 Git 目录
+.git
+
+# 忽略 Node.js 依赖目录，因为我们会在 Docker 内部运行 npm ci
+node_modules
+
+# 忽略 npm 生成的调试日志
+npm-debug.log*
+
+# 忽略构建产物目录 (在本地)
+dist
+
+# 忽略 IDE 和操作系统生成的文件
+.idea
+.vscode
+*.suo
+*.user
+.DS_Store
+
+# 忽略本地环境变量文件
+.env.local

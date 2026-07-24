@@ -1,0 +1,29 @@
+# Facet Backend Configuration
+# For production, override these values using environment variables.
+# See .env.example or the project README for available options.
+server:
+  port: "8080"
+
+jwt:
+  # Override via env: JWT_SECRET_KEY (required in production)
+  secret_key: "dev-only-do-not-use-in-production"
+  expires_in_hours: 24
+
+# Local development only — override via env: POSTGRES_DSN
+postgres:
+  dsn: "postgres://postgres:123456@localhost:5432/postgres?sslmode=disable&search_path=facet"
+
+# Redis connection configuration — override via env: REDIS_ADDRESS, REDIS_PASSWORD, REDIS_DB
+redis:
+  address: "localhost:6379"
+  password: ""
+  db: 0
+
+logger:
+  level: "debug"
+  filename: "./logs/app.log"
+  max_size: 10
+  max_age: 30
+  max_backups: 15
+  compress: true
+  file_output: true

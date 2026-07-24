@@ -1,0 +1,87 @@
+services:
+  postgres:
+    image: postgres:17.6-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-facet_secret}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - facet_network
+
+  redis:
+    image: redis:7.2.5
+    command: redis-server --requirepass ${REDIS_PASSWORD:-facet_secret}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-facet_secret}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+    networks:
+      - facet_network
+
+  backend:
+    build: ./facet-backend
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+    ports:
+      - "8080:8080"
+    environment:
+      POSTGRES_DSN: "postgres://postgres:${POSTGRES_PASSWORD:-facet_secret}@postgres:5432/postgres?sslmode=disable&search_path=facet"
+      JWT_SECRET_KEY: "${JWT_SECRET_KEY}"
+      JWT_EXPIRES_IN_HOURS: "24"
+      LOGGER_LEVEL: "debug"
+      LOGGER_FILE_OUTPUT: "false"
+      REDIS_ADDRESS: "redis:6379"
+      REDIS_PASSWORD: "${REDIS_PASSWORD:-facet_secret}"
+      REDIS_DB: "0"
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - facet_network
+
+  frontend:
+    build: ./facet-front
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - facet_network
+
+networks:
+  facet_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis-data:

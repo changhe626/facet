@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facet - Feature Flag & A/B Testing Platform</title>
+    <style>
+        :root {
+            --primary-color: #1976d2;
+            --text-color: #1a1a2e;
+            --secondary-text-color: #555;
+            --bg-color: #ffffff;
+            --card-bg-color: #f5f7fa;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        a { color: var(--primary-color); text-decoration: none; }
+
+        .navbar { background-color: var(--bg-color); padding: 15px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+        .nav-link { font-weight: 500; color: var(--text-color); border: 1px solid var(--primary-color); padding: 8px 15px; border-radius: 5px; transition: all 0.3s; }
+        .nav-link:hover { background-color: var(--primary-color); color: #fff; }
+
+        .hero { text-align: center; padding: 100px 0; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; }
+        .hero .subtitle { font-size: 1.3rem; color: var(--secondary-text-color); max-width: 700px; margin: 0 auto 30px; }
+        .cta-button { display: inline-block; background-color: var(--primary-color); color: #fff; padding: 15px 30px; font-size: 1.1rem; font-weight: 600; border-radius: 5px; transition: background-color 0.3s; }
+        .cta-button:hover { opacity: 0.9; }
+
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+        .section-subtitle { text-align: center; font-size: 1.2rem; color: var(--secondary-text-color); max-width: 800px; margin: -40px auto 50px; }
+
+        .features { padding: 60px 0; background-color: var(--card-bg-color); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .feature-card { background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 30px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .feature-card p { color: var(--secondary-text-color); }
+
+        .why-us { padding: 80px 0; }
+        .why-us-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .value-card { background-color: #fff; border-left: 4px solid var(--primary-color); border-radius: 4px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .value-card h3 { font-size: 1.5rem; margin-top: 0; margin-bottom: 15px; }
+        .value-card p { color: var(--secondary-text-color); }
+
+        .tech-stack { padding: 60px 0; background-color: var(--card-bg-color); }
+        .tech-logos { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 40px; margin-top: 30px; }
+        .tech-logo { font-size: 1.2rem; font-weight: 600; color: var(--secondary-text-color); }
+
+        .cta-section { background-color: var(--primary-color); color: #fff; text-align: center; padding: 60px 20px; }
+        .cta-section h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        .cta-section p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+
+        .footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--border-color); color: var(--secondary-text-color); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <span class="logo">Facet</span>
+            <a href="https://github.com/anomalyco/facet" target="_blank" class="nav-link">GitHub</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Feature Flag &amp; A/B Testing Platform</h1>
+            <p class="subtitle">A modern, high-performance, open-source solution for dynamic feature management, progressive delivery, and experiment-driven development.</p>
+            <a href="https://github.com/anomalyco/facet" target="_blank" class="cta-button">Star on GitHub</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Core Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Feature Flags</h3>
+                        <p>Toggle features on and off without redeploying. Enable instant rollback and safe deployments across your entire infrastructure.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Percentage Rollout</h3>
+                        <p>Gradually roll out features to a percentage of users. Monitor impact, gather feedback, and ramp up with confidence.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>User Targeting</h3>
+                        <p>Target specific users or segments based on attributes. Deliver personalized experiences with fine-grained control.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Multi-Tenant &amp; Multi-Environment</h3>
+                        <p>Enterprise-ready multi-tenant architecture with isolated environments for development, staging, and production.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-us">
+            <div class="container">
+                <h2 class="section-title">Built for Modern Software Delivery</h2>
+                <p class="section-subtitle">Move beyond high-risk "big bang" releases. Embrace agile, safe, data-driven delivery.</p>
+                <div class="why-us-grid">
+                    <div class="value-card">
+                        <h3>Reduce Deployment Risk</h3>
+                        <p>Contain the blast radius of new features. If something goes wrong, disable it instantly without a rollback deployment.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Accelerate Innovation</h3>
+                        <p>Validate ideas quickly with A/B testing. Let data guide your product decisions and ship features users truly love.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Empower Teams</h3>
+                        <p>Give product managers and operators control over feature release cycles through an intuitive UI, decoupled from engineering sprints.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <div class="container">
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="tech-logos">
+                    <span class="tech-logo">React 19</span>
+                    <span class="tech-logo">TypeScript</span>
+                    <span class="tech-logo">Material UI 7</span>
+                    <span class="tech-logo">Go 1.25</span>
+                    <span class="tech-logo">Gin</span>
+                    <span class="tech-logo">PostgreSQL</span>
+                    <span class="tech-logo">Redis</span>
+                    <span class="tech-logo">Docker</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Open Source</h2>
+                <p>Facet is open-source under the AGPL v3 license. Contributions, issues, and feature requests are welcome.</p>
+                <a href="https://github.com/anomalyco/facet" target="_blank" class="cta-button" style="background-color: #fff; color: var(--primary-color);">View on GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright &copy; 2026 Facet. Released under the AGPL v3 License.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Go
+facet-backend/logs/
+facet-backend/tmp/
+
+# Node
+facet-front/node_modules/
+facet-front/dist/
+
+# Docker
+.env
+!.env.example
+
+# Temp
+/logs/
+*.log
+tmp/
+dev-error.txt
+dev-output.txt
+
+# Local config
+.claude/
+CLAUDE.md
+/*/facet-backend.exe
+
+# Sensitive docs (production data dumps / internal notes)
+
+facet-backend/docs/dump-postgres-*.sql
