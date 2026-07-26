@@ -47,7 +47,7 @@ jobs:
           cache-dependency-path: facet-backend/go.sum
 
       - name: Lint
-        uses: golangci/golangci-lint-action@v6
+        uses: golangci/golangci-lint-action@v9
         with:
           version: latest
           working-directory: facet-backend
