@@ -7,6 +7,8 @@
 
 Facet is an open-source feature flag (feature toggle) management platform — a self-hosted alternative to LaunchDarkly. Built with Go and React, it provides a centralized dashboard to manage feature flags across environments, tenants, and users, enabling safe, gradual rollouts and targeted feature releases without vendor lock-in.
 
+[**中文文档**](README.zh.md) — 本项目也提供中文说明
+
 ## Why Facet?
 
 - **Self-hosted & Open Source** — Full control over your data. No third-party API calls, no per-seat pricing.
