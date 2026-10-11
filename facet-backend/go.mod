@@ -1,6 +1,6 @@
 module facet-backend
 
-go 1.25.0
+go 1.26.0
 
 require (
 	github.com/alicebob/miniredis/v2 v2.38.0
@@ -19,7 +19,7 @@ require (
 	github.com/swaggo/files v1.0.1
 	github.com/swaggo/gin-swagger v1.6.1
 	golang.org/x/crypto v0.54.0
-	golang.org/x/sync v0.22.0
+	golang.org/x/sync v0.24.0
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 )
 
